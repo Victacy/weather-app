@@ -1,7 +1,9 @@
 
 import React,{useState} from 'react'
-import {Form,Button} from 'react-bootstrap'
+import {Form,Button, Container} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import pic from './image/sunny.jpg'
 
 function SignUp() {
     const [username,setUserName] = useState("");
@@ -40,36 +42,56 @@ function SignUp() {
                 </>
             ):(
                 <>
-                <Form>
-                    <Form.Group value={username} onChange={handleUserNameInput}>
-                    <Form.Label>Username :</Form.Label>
-                    <Form.Control type="text" placeholder="username"/>
+                <Container>
+                    <center>
+                    <img src={pic} alt=' '/>
+                    <h3>Create an Account</h3>
+                    </center>
+                    
+                <Form className="title">
+                    <p>
+                    <Form.Group className="auth" value={username} onChange={handleUserNameInput}>
+                    <Form.Label className="index" >Username :</Form.Label>
+                    <Form.Control className="in" type="text" placeholder="username"/>
                     </Form.Group>
+                    </p><br/>
 
-                    <Form.Group value={email} onChange={handleEmailInput}>
-                    <Form.Label>Email Address:</Form.Label>
-                    <Form.Control type="email" placeholder="example@gmail.com"/>
+                    <p>
+                    <Form.Group className="auth" value={email} onChange={handleEmailInput}>
+                    <Form.Label className="index">Email Address:</Form.Label>
+                    <Form.Control className="in" type="email" placeholder="example@gmail.com"/>
                     </Form.Group>
+                    </p>
 
-                    <Form.Group value={password} onChange={handlePasswordInput}>
-                    <Form.Label>Password :</Form.Label>
-                    <Form.Control type="password" placeholder="password"/>
+                    <p>
+                    <Form.Group className="auth" value={password} onChange={handlePasswordInput}>
+                    <Form.Label className="index">Password :</Form.Label>
+                    <Form.Control className="in" type="password" placeholder="password"/>
                     </Form.Group>
+                    </p>
 
-                    <Form.Group value={password} onChange={handlePasswordInput}>
-                    <Form.Label>Repeat Password :</Form.Label>
-                    <Form.Control type="password" placeholder="password"/>
+                    <p>
+                    <Form.Group className="auth" value={password} onChange={handlePasswordInput}>
+                    <Form.Label className="index">Repeat Password :</Form.Label>
+                    <Form.Control className="in" type="password" placeholder="password"/>
                     </Form.Group>
-                
-                    <Form.Group >
-                    <Form.Check type="checkbox" label="Remember me"/>
+                    </p>
+
+                    <p>
+                    <Form.Group className="auth" >
+                    <Form.Check style={{color:'black'}} type="checkbox" label="Remember me"/>
                     </Form.Group>
+                    </p>
+
+                    <center>
                     <Button  onClick={handleSignup} type='submit'>Sign Up</Button>
                     <br/> 
-                        <p>Are you a new user?<Link to='/login'>
+                        <p style={{color:'black'}}>Already have an account?<Link to='/login'>
                         <span>Log in</span>
                         </Link></p>
+                    </center>
                 </Form>
+                </Container>
                 </>
             )
 

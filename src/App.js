@@ -6,7 +6,7 @@ import Navigation from './Navigation';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import Home from './Home';
-import Try from './Try';
+
 
 
 
@@ -19,7 +19,7 @@ function App() {
         <Route  className="acc" path ="/login" component={LogIn}/>
         <Route path ="/signup" component={SignUp}/>
         <Route path="/weather" component={Weather}/>
-        <Route path="/try" component={Try}/>
+     
       </Switch>
 
     </Router>

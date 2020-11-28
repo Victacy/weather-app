@@ -2,12 +2,12 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import {Form,Button} from 'react-bootstrap'
 
-function Weather() {
+function Data() {
     const [country,setCountry]=useState("");
     const [city,setCity]=useState("");
     const [weatherstate,setWeatherState]=useState("");
-    //const [redo,setRedo]=useState(10);
-   
+    const [state, setState]= useState("");
+    
     const handleCountryInput = (event) => {
         setCountry(event.target.value);
       };
@@ -15,7 +15,14 @@ function Weather() {
       const handleCityInput = (event) => {
         setCity(event.target.value);
       };
-        //setRedo(redo+1);
+      
+      const handleReset=() => {
+        (document.querySelectorAll('input')).forEach(
+          input => (input.value="")
+        )
+        setState({itemvalues :[{}]
+        });
+      }
       
       const getWeatherState=(event) =>{
         event.preventDefault()
@@ -24,45 +31,36 @@ function Weather() {
           .then((res) => {
               console.log(res)
               setWeatherState(res.data)
-            
           })
       }
 
     return (
-        <div className="weath">
-          <center>
-            <h2>Check the weather of the place you want</h2>
-          </center>
-          <Form classNam="title">
+        <div>
+          <Form className="title">
               <Form.Group className="auth" onChange={handleCountryInput}>
-                  <Form.Label className="index"></Form.Label>
+                  <Form.Label className="index">{country}</Form.Label>
                   <Form.Control type="text" placeholder="Country"/>
               </Form.Group>
-              <Form.Group className="auth" onChange={handleCityInput}>
-                  <Form.Label className="index"></Form.Label>
+              <Form.Group  className="auth" onChange={handleCityInput}>
+                  <Form.Label className="index">{city}</Form.Label>
                   <Form.Control type="text" placeholder="City"/>
               </Form.Group><br/>
-              <center>
-              <Button type="reset" style={{marginRight: 10 }}>Reset</Button>
-              <Button type="submit" onClick={getWeatherState}>Search</Button>
-              </center>
+              <Button style={{marginRight: 10 }} onClick={handleReset}>Reset</Button>
+         <Button type="submit" onClick={getWeatherState}>Search</Button>
             </Form>
-            <br/>
+            <p>Hello,{city} can be found in {country}</p>  
+            <p>{` hello, ${city} in ${country} is avery nice place to bring your family for a vacation`}</p>
             {
-              weatherstate &&(<div className="app">
-                <span className="app"><h1>{weatherstate.request.query}</h1>
-                <h3>{weatherstate.location.lat}
-               <p> {weatherstate.location.localtime}</p></h3>
-                <h4>{weatherstate.current.temperature}</h4>
-                <h5>{weatherstate.current.weather_descriptions}</h5></span>
-
+              weatherstate &&(<div>
+                <h1>{weatherstate.location.country}</h1>
+                <h3>{weatherstate.location.name}</h3>
+                <h4>{weatherstate.location.region}</h4>
                 <img src={weatherstate.current.weather_icons} alt=""/>
 
               </div> )
             }
-            
         </div>
     )
 }
 
-export default Weather
+export default Data

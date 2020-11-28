@@ -6,11 +6,11 @@ function Navigation() {
     return (
     <Navbar bg="light" expand="lg">
                 <Nav>
-                    <Link className="d-inline p-2 bg-light text-dark" to ="/">Home</Link>
-                    <Link className="d-inline p-2 bg-light text-dark" to ="/login">LogIn</Link>
-                    <Link className="d-inline p-2 bg-light text-dark" to ="/signup">SignUp</Link>
-                    <Link className="d-inline p-2 bg-light text-dark" to ="/weather">Weather</Link>
-                    <Link className="d-inline p-2 bg-light text-dark" to ="/try">Try</Link>
+                    <Link className="lay p-2" to ="/">Home</Link>
+                    <Link className="lay p-2 " to ="/login">LogIn</Link>
+                    <Link className="lay p-2 " to ="/signup">SignUp</Link>
+                    <Link className="lay p-2 " to ="/weather">Weather</Link>
+                    
           
 
                 </Nav>
