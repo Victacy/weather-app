@@ -33,7 +33,7 @@ function LogIn() {
                 <>
                 <p>Welcome</p>
                 <Button onClick={handleLogout}>Logout</Button>
-                <Link to='/'></Link>
+                <Link to='/'>Continue</Link>
                 </>
                 ) : (
                 <>
